@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+      <title>Pincode Data</title>
+     
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.0.0-beta.32/dc.min.css">
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+
+  <body>
+      <nav id="sidebar-wrapper" class="effect1" >
+          <ul class="sidebar-nav">
+          <a id="menu-close" href="#" class="btn pull-right toggle" style=""><i class="fa fa-times" style="color: #512da8;"></i></a>
+         <div id="header">
+          <h4>Data Visualization  </h4>
+          </div>
+
+          <div class ="section1" style="font-size:1em">
+            <div id="infoDiv" style="padding: 15px;height: 300px; width: 100%;"></div>
+           </div>
+
+
+      </nav>
+
+     <div class="row height">
+          <div class="col-sm-12 col-md-12 col-lg-12 height">
+              <div id="map">        
+
+              </div>
+
+          </div>
+    </div>
+
+
+    
+  
+
+
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+  crossorigin=""></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src = "js/map.js"></script>
+    <script src = "js/crossfilter.js"></script> 
+    <script src = "js/d3.js"></script>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.0.0-beta.32/dc.js"></script>
+
+
+<!-- <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+  
+    
+  
+ <script>
+          // Closes the sidebar menu
+          $("#menu-close").click(function(e) {
+              e.preventDefault();
+              $("#sidebar-wrapper").toggleClass("active");
+              map.closePopup();
+          });
+
+          // Opens the sidebar menu
+          $(".leaflet-interactive").click(function(e) {
+              e.preventDefault();
+             // document.getElementById('stext').value="";
+             $("#sidebar-wrapper").toggleClass("active");
+          });
+
+                  map.on('click', function(e) {        
+                 $("#sidebar-wrapper").toggleClass("active");
+                });
+
+          // Scrolls to the selected menu item on the page
+          $(function() {
+              $('a[href*=#]:not([href=#])').click(function() {
+                  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                      var target = $(this.hash);
+                      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                      if (target.length) {
+                          $('html,body').animate({
+                              scrollTop: target.offset().top
+                          }, 1000);
+                          return false;
+                      }
+                  }
+              });
+          });
+      </script>
+
+</html>
